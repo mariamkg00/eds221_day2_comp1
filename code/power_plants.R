@@ -2,6 +2,7 @@
 
 library(tidyverse)
 library(here)
+
 library(janitor)
 
 plants <- read_csv(here("data","power_plants.csv")) %>% 
@@ -12,5 +13,6 @@ alabama_plants <- plants %>%
   
 alabama_plot <- ggplot(data= alabama_plants, aes(x=install_mw, y= total_mw))+
   geom_point()
+
 
 
