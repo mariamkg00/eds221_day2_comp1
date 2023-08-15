@@ -8,6 +8,7 @@ execute:
 
 ```{r}
 library(tidyverse)
+library(here)
 ```
 
 ## Making & indexing data in R
@@ -138,64 +139,3 @@ fish_size[, 2]
 An edit
 
 ## Lists
-
-```{r}
-urchins <- list(color="blue", values= c(1,2,3), meals=c("lunch","dinner","dessert"),cost= 5L)
-
-urchins
-```
-
-```{r}
-
-urchins_list <- urchins[2]
-#single bracket returns the element maintains the original data structure, which is still a list. 
-urchins_vector <-urchins [[2]]
-
-
-
-```
-
-```{r}
-
-urchins$values
-
-```
-
-```{r}
-sample1 <- c(1,2,3,4,5,6,2,1)
-sample2 <- c(6,8,4,2,1,6,3,8)
-
-#ttest= do we have enough evidence to conclude that these samples were drawn from populations with different means
-
-ttest_example <- t.test(sample1,sample2)
-
-#pvalue = 0.1515, means that it there is a 1.15% chance that these samples were taken from the population with the same mean , pretty unlikely. below threshold and it is unlikely.
-
-class(ttest_example)
-```
-
-Mean size for trees in Site A is greater than the mean size in Site B (...my statistical summary, \`r ttest_example\$p.value\`\`)
-
-## Data frames
-
-```{r}
-fruit <- data.frame(type = c('apple','banana','peach'),
-                    mass =c(130,195,150))
-class(fruit)
-
-fruit
-
-
-#accessing different elements in this data frame
-fruit[3,2]
-
-purrr::pluck(fruit, "type", 2)
-#more readable and linear way to index in a data structure
-```
-
-```{r}
-#the double brackets gets a vector of the values of the first row, to get the second value then the additional [2].
-
-starwars$starships[[1]][2]
-purrr::pluck(starwars, "starships", 1, 2)
-```
