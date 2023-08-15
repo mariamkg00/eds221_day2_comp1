@@ -6,6 +6,10 @@ execute:
   warning: false
 ---
 
+```{r}
+library(tidyverse)
+```
+
 ## Making & indexing data in R
 
 ### Vectors
@@ -169,4 +173,29 @@ ttest_example <- t.test(sample1,sample2)
 
 class(ttest_example)
 ```
-Mean size for trees in Site A is greater than the mean size in Site B (...my statistical summary, `r ttest_example$p.value``)
+
+Mean size for trees in Site A is greater than the mean size in Site B (...my statistical summary, \`r ttest_example\$p.value\`\`)
+
+## Data frames
+
+```{r}
+fruit <- data.frame(type = c('apple','banana','peach'),
+                    mass =c(130,195,150))
+class(fruit)
+
+fruit
+
+
+#accessing different elements in this data frame
+fruit[3,2]
+
+purrr::pluck(fruit, "type", 2)
+#more readable and linear way to index in a data structure
+```
+
+```{r}
+#the double brackets gets a vector of the values of the first row, to get the second value then the additional [2].
+
+starwars$starships[[1]][2]
+purrr::pluck(starwars, "starships", 1, 2)
+```
