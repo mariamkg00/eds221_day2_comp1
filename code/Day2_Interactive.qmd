@@ -8,7 +8,7 @@ execute:
 
 ## Making & indexing data in R
 
-### Vectors 
+### Vectors
 
 Making vectors
 
@@ -132,3 +132,5 @@ fish_size[, 2]
 ```
 
 An edit
+
+## Lists
